@@ -1,4 +1,4 @@
-<!-- Created with GitHub Profile Studio -->
+
 
 <div align="center">
 
@@ -78,7 +78,7 @@
       </td>
       <td width="50%" align="center">
         <h3>AtlasIQ</h3>
-        <p>No description provided</p>
+        <p>Discover knowledge, synthesized from trusted sources</p>
         <p><strong>Tech:</strong> TypeScript</p>
         <a href="https://github.com/adityaverma9777/AtlasIQ">
           <img src="https://img.shields.io/badge/View_Repository-000?style=for-the-badge&logo=github&logoColor=white" />
