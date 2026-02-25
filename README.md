@@ -13,7 +13,7 @@
 
   
   <p>Interested in ML systems, inference engineering, and making models behave in production.</p>
-  <p>Hackathons are my stress tests.</p>
+  
 
 </div>
 
