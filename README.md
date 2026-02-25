@@ -11,7 +11,7 @@
   <br/>
   <br/>
 
-  <h3>Building AI that fits in memory.</h3>
+  
   <p>Interested in ML systems, inference engineering, and making models behave in production.</p>
   <p>Hackathons are my stress tests.</p>
 
