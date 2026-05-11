@@ -63,31 +63,6 @@
 </div>
 
 
-
-<div align="center">
-  <h2>🚀 Featured Projects</h2>
-  <table border="0">
-    <tr>
-      <td width="50%" align="center">
-        <h3>Edyx</h3>
-        <p>Generate Free Uncapped AI API's for your projects</p>
-        <p><strong>Tech:</strong> TypeScript</p>
-        <a href="https://github.com/adityaverma9777/Edyx">
-          <img src="https://img.shields.io/badge/View_Repository-000?style=for-the-badge&logo=github&logoColor=white" />
-        </a>
-      </td>
-      <td width="50%" align="center">
-        <h3>AtlasIQ</h3>
-        <p>Discover knowledge, synthesized from trusted sources</p>
-        <p><strong>Tech:</strong> TypeScript</p>
-        <a href="https://github.com/adityaverma9777/AtlasIQ">
-          <img src="https://img.shields.io/badge/View_Repository-000?style=for-the-badge&logo=github&logoColor=white" />
-        </a>
-      </td>
-    </tr>
-  </table>
-</div>
-
 <br/>
 
 <div align="center">
