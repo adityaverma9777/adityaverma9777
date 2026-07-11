@@ -22,28 +22,46 @@ INFO_FONT = 16
 CANVAS_W = 1200
 CANVAS_H = max(len(ascii_rows) * ASCII_LINE_H + ASCII_Y0 + 20, 22 * INFO_LINE_H + INFO_Y0 + 30)
 
+VALUE_COL = 35
+
+
+def dots(key_display_len):
+    n = max(1, VALUE_COL - key_display_len - 5)
+    return " " + "." * n + " "
+
+
+def kv_line(info_x, y, key, value, key2=None, val_id=None, dots_id=None,
+            key_col=None, val_col=None, cc_col=None, fg=None):
+    id_attr = f' id="{val_id}"' if val_id else ""
+    did_attr = f' id="{dots_id}"' if dots_id else ""
+    key_len = len(key) + (1 + len(key2) if key2 else 0) + 1
+    dot_str = dots(key_len)
+    if key2:
+        k_part = (
+            f'<tspan class="key">{html.escape(key)}</tspan>'
+            f'.<tspan class="key">{html.escape(key2)}</tspan>:'
+        )
+    else:
+        k_part = f'<tspan class="key">{html.escape(key)}</tspan>:'
+    return (
+        f'<tspan x="{info_x}" y="{y}" class="cc">. </tspan>'
+        f'{k_part}'
+        f'<tspan class="cc"{did_attr}>{html.escape(dot_str)}</tspan>'
+        f'<tspan class="value"{id_attr}>{html.escape(value)}</tspan>'
+    )
+
 
 def make_svg(theme):
     if theme == "dark":
-        bg = "#161b22"
-        fg = "#c9d1d9"
+        bg, fg = "#161b22", "#c9d1d9"
         ascii_fg = "#c9d1d9"
-        key_col = "#ffa657"
-        val_col = "#a5d6ff"
-        add_col = "#3fb950"
-        del_col = "#f85149"
-        cc_col = "#616e7f"
+        key_col, val_col, add_col, del_col, cc_col = "#ffa657", "#a5d6ff", "#3fb950", "#f85149", "#616e7f"
     else:
-        bg = "#f6f8fa"
-        fg = "#24292f"
+        bg, fg = "#f6f8fa", "#24292f"
         ascii_fg = "#24292f"
-        key_col = "#953800"
-        val_col = "#0a3069"
-        add_col = "#1a7f37"
-        del_col = "#cf222e"
-        cc_col = "#9e9e9e"
+        key_col, val_col, add_col, del_col, cc_col = "#953800", "#0a3069", "#1a7f37", "#cf222e", "#9e9e9e"
 
-    def row(i):
+    def y(i):
         return INFO_Y0 + i * INFO_LINE_H
 
     parts = []
@@ -66,126 +84,66 @@ size-adjust: 109%;
 .addColor {{fill: {add_col};}}
 .delColor {{fill: {del_col};}}
 .cc {{fill: {cc_col};}}
-.ascii {{font-size: {ASCII_FONT}px; line-height: {ASCII_LINE_H}px;}}
+.ascii {{font-size: {ASCII_FONT}px;}}
 text, tspan {{white-space: pre;}}
 </style>""")
     parts.append(f'<rect width="{CANVAS_W}px" height="{CANVAS_H}px" fill="{bg}" rx="15"/>')
 
     parts.append(f'<text x="{ASCII_X}" y="{ASCII_Y0}" fill="{ascii_fg}" class="ascii">')
     for i, row_txt in enumerate(ascii_rows):
-        y = ASCII_Y0 + i * ASCII_LINE_H
-        parts.append(f'<tspan x="{ASCII_X}" y="{y}">{html.escape(row_txt)}</tspan>')
+        ry = ASCII_Y0 + i * ASCII_LINE_H
+        parts.append(f'<tspan x="{ASCII_X}" y="{ry}">{html.escape(row_txt)}</tspan>')
     parts.append('</text>')
 
     parts.append(f'<text x="{INFO_X}" y="{INFO_Y0}" fill="{fg}">')
 
-    DASH = "\u2014" * 35 + "-\u2014-"
-    parts.append(f'<tspan x="{INFO_X}" y="{row(0)}">aditya@verma</tspan> -{DASH}')
+    DASH = "\u2014" * 33 + "-\u2014-"
+    parts.append(f'<tspan x="{INFO_X}" y="{y(0)}">adityaverma9777@github</tspan> -{DASH}')
+
+    parts.append(kv_line(INFO_X, y(1), "OS", "Windows 11, Android 14"))
+    parts.append(kv_line(INFO_X, y(2), "Uptime", "calculating...", val_id="age_data", dots_id="age_data_dots"))
+    parts.append(kv_line(INFO_X, y(3), "Focus", "ML Systems & Inference Eng."))
+    parts.append(kv_line(INFO_X, y(4), "Edu", "BCA \u2014 Computer Applications"))
+    parts.append(kv_line(INFO_X, y(5), "IDE", "VSCode, PyCharm"))
+    parts.append(f'<tspan x="{INFO_X}" y="{y(6)}" class="cc">. </tspan>')
+    parts.append(kv_line(INFO_X, y(7), "Languages", "Python, TypeScript, Java, C++", key2="Programming"))
+    parts.append(kv_line(INFO_X, y(8), "Languages", "HTML, CSS, JSON, YAML", key2="Computer"))
+    parts.append(f'<tspan x="{INFO_X}" y="{y(9)}" class="cc">. </tspan>')
+    parts.append(kv_line(INFO_X, y(10), "Interests", "Inference Opt., PyTorch, HF", key2="AI"))
+    parts.append(kv_line(INFO_X, y(11), "Interests", "FastAPI, Redis, PostgreSQL", key2="Backend"))
+
+    CDASH = "\u2014" * 30 + "-\u2014-"
+    parts.append(f'<tspan x="{INFO_X}" y="{y(12)}">- Contact</tspan> -{CDASH}')
+
+    parts.append(kv_line(INFO_X, y(13), "Email", "adityaverma9777@gmail.com"))
+    parts.append(kv_line(INFO_X, y(14), "Portfolio", "adityavermaworks.in"))
+    parts.append(kv_line(INFO_X, y(15), "LinkedIn", "adityaverma9777"))
+    parts.append(kv_line(INFO_X, y(16), "Instagram", "chaii.samosa"))
+
+    GDASH = "\u2014" * 26 + "-\u2014-"
+    parts.append(f'<tspan x="{INFO_X}" y="{y(17)}">- GitHub Stats</tspan> -{GDASH}')
+
+    repo_dots = dots(len("Repos") + 1)
+    star_dots = dots(len("Stars") + 1)
     parts.append(
-        f'<tspan x="{INFO_X}" y="{row(1)}" class="cc">. </tspan>'
-        f'<tspan class="key">OS</tspan>:'
-        f'<tspan class="cc"> ....................... </tspan>'
-        f'<tspan class="value">Windows 11, Android 14</tspan>'
-    )
-    parts.append(
-        f'<tspan x="{INFO_X}" y="{row(2)}" class="cc">. </tspan>'
-        f'<tspan class="key">Uptime</tspan>:'
-        f'<tspan class="cc" id="age_data_dots"> .................... </tspan>'
-        f'<tspan class="value" id="age_data">calculating...</tspan>'
-    )
-    parts.append(
-        f'<tspan x="{INFO_X}" y="{row(3)}" class="cc">. </tspan>'
-        f'<tspan class="key">Focus</tspan>:'
-        f'<tspan class="cc"> ..................... </tspan>'
-        f'<tspan class="value">ML Systems &amp; Inference Eng.</tspan>'
-    )
-    parts.append(
-        f'<tspan x="{INFO_X}" y="{row(4)}" class="cc">. </tspan>'
-        f'<tspan class="key">Edu</tspan>:'
-        f'<tspan class="cc"> ........................ </tspan>'
-        f'<tspan class="value">BCA \u2014 Computer Applications</tspan>'
-    )
-    parts.append(
-        f'<tspan x="{INFO_X}" y="{row(5)}" class="cc">. </tspan>'
-        f'<tspan class="key">IDE</tspan>:'
-        f'<tspan class="cc"> ........................ </tspan>'
-        f'<tspan class="value">VSCode, PyCharm</tspan>'
-    )
-    parts.append(f'<tspan x="{INFO_X}" y="{row(6)}" class="cc">. </tspan>')
-    parts.append(
-        f'<tspan x="{INFO_X}" y="{row(7)}" class="cc">. </tspan>'
-        f'<tspan class="key">Languages</tspan>.<tspan class="key">Programming</tspan>:'
-        f'<tspan class="cc"> ..... </tspan>'
-        f'<tspan class="value">Python, TypeScript, Java, C++</tspan>'
-    )
-    parts.append(
-        f'<tspan x="{INFO_X}" y="{row(8)}" class="cc">. </tspan>'
-        f'<tspan class="key">Languages</tspan>.<tspan class="key">Computer</tspan>:'
-        f'<tspan class="cc"> ......... </tspan>'
-        f'<tspan class="value">HTML, CSS, JSON, YAML</tspan>'
-    )
-    parts.append(f'<tspan x="{INFO_X}" y="{row(9)}" class="cc">. </tspan>')
-    parts.append(
-        f'<tspan x="{INFO_X}" y="{row(10)}" class="cc">. </tspan>'
-        f'<tspan class="key">Interests</tspan>.<tspan class="key">AI</tspan>:'
-        f'<tspan class="cc"> ........... </tspan>'
-        f'<tspan class="value">Inference Opt., PyTorch, HF</tspan>'
-    )
-    parts.append(
-        f'<tspan x="{INFO_X}" y="{row(11)}" class="cc">. </tspan>'
-        f'<tspan class="key">Interests</tspan>.<tspan class="key">Backend</tspan>:'
-        f'<tspan class="cc"> .......... </tspan>'
-        f'<tspan class="value">FastAPI, Redis, PostgreSQL</tspan>'
-    )
-    CDASH = "\u2014" * 32 + "-\u2014-"
-    parts.append(
-        f'<tspan x="{INFO_X}" y="{row(12)}">- Contact</tspan> -{CDASH}'
-    )
-    parts.append(
-        f'<tspan x="{INFO_X}" y="{row(13)}" class="cc">. </tspan>'
-        f'<tspan class="key">Email</tspan>:'
-        f'<tspan class="cc"> .................... </tspan>'
-        f'<tspan class="value">adityaverma9777@gmail.com</tspan>'
-    )
-    parts.append(
-        f'<tspan x="{INFO_X}" y="{row(14)}" class="cc">. </tspan>'
-        f'<tspan class="key">Portfolio</tspan>:'
-        f'<tspan class="cc"> ............... </tspan>'
-        f'<tspan class="value">adityavermaworks.in</tspan>'
-    )
-    parts.append(
-        f'<tspan x="{INFO_X}" y="{row(15)}" class="cc">. </tspan>'
-        f'<tspan class="key">LinkedIn</tspan>:'
-        f'<tspan class="cc"> .................. </tspan>'
-        f'<tspan class="value">adityaverma9777</tspan>'
-    )
-    parts.append(
-        f'<tspan x="{INFO_X}" y="{row(16)}" class="cc">. </tspan>'
-        f'<tspan class="key">Instagram</tspan>:'
-        f'<tspan class="cc"> ................. </tspan>'
-        f'<tspan class="value">chaii.samosa</tspan>'
-    )
-    GDASH = "\u2014" * 28 + "-\u2014-"
-    parts.append(
-        f'<tspan x="{INFO_X}" y="{row(17)}">- GitHub Stats</tspan> -{GDASH}'
-    )
-    parts.append(
-        f'<tspan x="{INFO_X}" y="{row(18)}" class="cc">. </tspan>'
+        f'<tspan x="{INFO_X}" y="{y(18)}" class="cc">. </tspan>'
         f'<tspan class="key">Repos</tspan>:'
-        f'<tspan class="cc" id="repo_data_dots"> .... </tspan>'
+        f'<tspan class="cc" id="repo_data_dots">{html.escape(repo_dots)}</tspan>'
         f'<tspan class="value" id="repo_data">-</tspan>'
         f' {{<tspan class="key">Contributed</tspan>: <tspan class="value" id="contrib_data">-</tspan>}}'
         f' | <tspan class="key">Stars</tspan>:'
-        f'<tspan class="cc" id="star_data_dots"> ........... </tspan>'
+        f'<tspan class="cc" id="star_data_dots">{html.escape(star_dots)}</tspan>'
         f'<tspan class="value" id="star_data">-</tspan>'
     )
+    commit_dots = dots(len("Commits") + 1)
+    follower_dots = dots(len("Followers") + 1)
     parts.append(
-        f'<tspan x="{INFO_X}" y="{row(19)}" class="cc">. </tspan>'
+        f'<tspan x="{INFO_X}" y="{y(19)}" class="cc">. </tspan>'
         f'<tspan class="key">Commits</tspan>:'
-        f'<tspan class="cc" id="commit_data_dots"> ................. </tspan>'
+        f'<tspan class="cc" id="commit_data_dots">{html.escape(commit_dots)}</tspan>'
         f'<tspan class="value" id="commit_data">-</tspan>'
         f' | <tspan class="key">Followers</tspan>:'
-        f'<tspan class="cc" id="follower_data_dots"> ....... </tspan>'
+        f'<tspan class="cc" id="follower_data_dots">{html.escape(follower_dots)}</tspan>'
         f'<tspan class="value" id="follower_data">-</tspan>'
     )
     parts.append('</text>')
@@ -205,6 +163,5 @@ with open(light_path, "w", encoding="utf-8") as f:
     f.write(light_svg)
 
 print(f"Canvas: {CANVAS_W} x {CANVAS_H}")
-print(f"ASCII rows: {len(ascii_rows)}, chars/row: {max(len(r) for r in ascii_rows)}")
 print(f"wrote dark_mode.svg  ({len(dark_svg):,} bytes)")
 print(f"wrote light_mode.svg ({len(light_svg):,} bytes)")

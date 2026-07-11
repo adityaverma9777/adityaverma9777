@@ -41,13 +41,23 @@ def gh_query(query, variables=None):
 
 
 def get_stats():
+    rest_url = f"https://api.github.com/users/{USER_NAME}"
+    try:
+        r = requests.get(rest_url, headers=HEADERS, timeout=15)
+        r.raise_for_status()
+        d = r.json()
+        repos = d.get("public_repos", 0)
+        followers = d.get("followers", 0)
+    except Exception as e:
+        print(f"REST fetch failed: {e}")
+        return None, None, None, None, None
+    if not ACCESS_TOKEN:
+        return repos, None, None, followers, None
     query = """
     query($login: String!) {
       user(login: $login) {
-        repositories(ownerAffiliations: OWNER, first: 1) { totalCount }
         repositoriesContributedTo(first: 1) { totalCount }
         starredRepositories { totalCount }
-        followers { totalCount }
         contributionsCollection {
           totalCommitContributions
           restrictedContributionsCount
@@ -56,16 +66,14 @@ def get_stats():
     }"""
     try:
         data = gh_query(query, {"login": USER_NAME})["data"]["user"]
-        repos = data["repositories"]["totalCount"]
         contributed = data["repositoriesContributedTo"]["totalCount"]
         stars = data["starredRepositories"]["totalCount"]
-        followers = data["followers"]["totalCount"]
         cc = data["contributionsCollection"]
         commits = cc["totalCommitContributions"] + cc["restrictedContributionsCount"]
         return repos, contributed, stars, followers, commits
     except Exception as e:
-        print(f"stats fetch failed: {e}")
-        return None, None, None, None, None
+        print(f"GraphQL fetch failed: {e}")
+        return repos, None, None, followers, None
 
 
 def pad_dots(current_dots, old_val, new_val):
