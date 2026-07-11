@@ -45,7 +45,11 @@ def get_stats():
     query($login: String!) {
       user(login: $login) {
         repositoriesContributedTo(first: 1) { totalCount }
-        starredRepositories { totalCount }
+        repositories(first: 100, ownerAffiliations: OWNER) {
+          nodes {
+            stargazerCount
+          }
+        }
         contributionsCollection {
           totalCommitContributions
           restrictedContributionsCount
@@ -55,7 +59,10 @@ def get_stats():
     try:
         data = gh_query(query, {"login": USER_NAME})["data"]["user"]
         contributed = data["repositoriesContributedTo"]["totalCount"]
-        stars = data["starredRepositories"]["totalCount"]
+        
+        # Sum stars received on owned repositories
+        stars = sum(node["stargazerCount"] for node in data["repositories"]["nodes"])
+        
         cc = data["contributionsCollection"]
         commits = cc["totalCommitContributions"] + cc["restrictedContributionsCount"]
         return repos, contributed, stars, followers, commits
