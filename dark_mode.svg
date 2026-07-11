@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" font-family="ConsolasFallback,Consolas,monospace" width="1200px" height="549px" font-size="16px">
+<svg xmlns="http://www.w3.org/2000/svg" font-family="ConsolasFallback,Consolas,monospace" width="1200px" height="539px" font-size="16px">
 <style>
 @font-face {
 src: local('Consolas'), local('Consolas Bold');
@@ -13,59 +13,48 @@ size-adjust: 109%;
 .addColor {fill: #3fb950;}
 .delColor {fill: #f85149;}
 .cc {fill: #616e7f;}
-.ascii {font-size: 8px;}
 text, tspan {white-space: pre;}
 </style>
-<rect width="1200px" height="549px" fill="#161b22" rx="15"/>
-<text x="15" y="12" fill="#c9d1d9" class="ascii">
-<tspan x="15" y="12">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@%@%@%#%#*#%*#%**%#+%%*%%#%%%@@@@@@%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</tspan>
-<tspan x="15" y="23">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@%%%##%+##*#%**%**##+%%#%%#%%#%@%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</tspan>
-<tspan x="15" y="34">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%%%##**#**##***+++=======+*+##*%#%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</tspan>
-<tspan x="15" y="45">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%##**#**#*=-=++**##%#%%%@@#+-=+*#%%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</tspan>
-<tspan x="15" y="56">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@%#*#**+-::--=+**####*+=-::::----=**%%@@%@@@@@@@@@@@@@@@@@@@@@@@@@@@</tspan>
-<tspan x="15" y="67">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%%##**+------:::--=++*+------==+***-+*#%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@</tspan>
-<tspan x="15" y="78">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%###*=-=+===--:::--+#%#=:::::--===++-+*#%@@@@@@@@@@@@@@@@@@@@@@@@@@@@</tspan>
-<tspan x="15" y="89">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%%#*====---::.-:::-*%@%*=::-:.:+--=+=-=*%@%@@@@@@@@@@@@@@@@@@@@@@@@@@</tspan>
-<tspan x="15" y="100">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%%##==+===-===+==-==*%@@%#*=---=+*#%%%*=+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@</tspan>
-<tspan x="15" y="111">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%%#+-+*******##*++=+#%@@@@@@#*+*#%@@@@@+=*%@@@@@@@@@@@@@@@@@@@@@@@@@@@</tspan>
-<tspan x="15" y="122">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%*==%##%%%@@@@%*=+*#%@@%@@@@@@@@@@@@@@*=+%@@@@@@@@@@@@@@@@@@@@@@@@@@@</tspan>
-<tspan x="15" y="133">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%#+-=#**##%@@@@#+*+=+*##%@@##%@@@@%####*-=#@@@@@@@@@@@@@@@@@@@@@@@@@@@</tspan>
-<tspan x="15" y="144">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#+-=****##%%@%*+=::--=-:-+%#*##%%%#%##+-+#%@@@@@@@@@@@@@@@@@@@@@@@@@@</tspan>
-<tspan x="15" y="155">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%*-=#*+***##%#*+=-::--++*%@@###%##%%##=:+#%@@@@@@@@@@@@@@@@@@@@@@@@@@</tspan>
-<tspan x="15" y="166">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#++#******##**+-::-::-=+#%%*#########+=*@@@@@@@@@@@@@@@@@@@@@@@@@@@@</tspan>
-<tspan x="15" y="177">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%##****+=::-----=+===+=-=+*#####%**%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</tspan>
-<tspan x="15" y="188">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%###**+:::-==++***#**=::-*###%%#-=++#%@@@@@@@@@@@@@@@@@@@@@@@@@@</tspan>
-<tspan x="15" y="199">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@######*+=*#***####%%%@@@#**##%%#=*#+++**#+**##%@@@@@@@@@@@@@@@@@@</tspan>
-<tspan x="15" y="210">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#+##+==+***++#%##*====+*#%@@@%%%%#+--=*%#***#*====+++%%@@@@@@@@@@@@@@</tspan>
-<tspan x="15" y="221">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#*#*%#==:-=++===*****+**#%%%@%%#%%#=-+*==++***#--::--==++%@@@@@@@@@@@@@</tspan>
-<tspan x="15" y="232">@@@@@@@@@@@@@@@@@@@@@@@@@@@@#*%#+***==-:---===+****++*#@@%%#*+-::-==++*#%%@%*-::----=*@%@@@@@@@@@@@@</tspan>
-<tspan x="15" y="243">@@@@@@@@@@@@@@@@@@@@@@@@@@@@*+%%#++*+=-::--------==--=++*++=-::-==++#@@@@%@@@#-:-=*%%@%%@@@@@@@@@@@@</tspan>
-<tspan x="15" y="254">@@@@@@@@@@@@@@@@@@@@@@@@@@@@**%@@@%++-::--==-::::::::::--::--===+++*@@@@@@@%@@@@@@%%%##%@@@@@@@@@@@@</tspan>
-<tspan x="15" y="265">@@@@@@@@@@@@@@@@@@@@@@@@@@@@%+%%%%%%*::++-=====-::..:::::-=+++++**#%@@@@%%%@@@@@@@@%%%@%@@@@@@@@@@@@</tspan>
-<tspan x="15" y="276">@@@@@@@@@@@@@@@@@@@@@@@@@%@@@**%@%#*+++#+:-====-::::::-+#%@@@@@%##%%@@@@%@@@@@@@@@@@%#%%@@@@@@@@@@@@</tspan>
-<tspan x="15" y="287">@@@@@@@@@@@@@@@@@@@@@@@@@#@@%#+==%%%%#***---==-::-:::-+%@@@@@@@@%%%@@@%%%%@%%@@@@@@@@@%#@@@@@@@@@@@@</tspan>
-<tspan x="15" y="298">@@@@@@@@@@@@@@@@@@@@@%@@%==#*%%#***#@@@@@@%+======+*#@@@@@@@@@%=*%%@@#########*++**#%@@@@@@@@@@@@@@@</tspan>
-<tspan x="15" y="309">@@@@@@@@@@@@@@@@@@%%@%%#**-+*=-----=*@@@@@@@@@@@@@##%%%%%%%%%+==+##%#*++===+++===+=+**#%%%%@@@@@@@@@</tspan>
-<tspan x="15" y="320">@@@@@@@@@@@@@@@@@####*#***+=+====-:::=*###*#%%%##%##***%%%%*=---=++=::..:=++++++++*+*+=+*##%#%%%@@@@</tspan>
-<tspan x="15" y="331">@@@@@@@@@@@@@@@@*##**#***#+=+#*++--::::-+****##########+=-----=+**=:-==--===+=*==+++****++*##%%%%%%@</tspan>
-<tspan x="15" y="342">@@@@@@@@@@@@@@@***+**+***==*#%##**+::::::-=*#***#*#+=-:::-=+**##=::=**==++****++**#**++#%%%##%%%%@@@</tspan>
-<tspan x="15" y="353">@@@@@@@@@@@@@@#+++++++=+==***+=#%#*=-:-------==+==+::::-=--=++--==**#*=++*++++*********##%%%###*####</tspan>
-<tspan x="15" y="364">@@@@@@@@@@@@@%++=++*+***=+***=--*#%*----------::-+=-::::::::-==-+*#%+-++**+==++**==+***#***+=====++*</tspan>
-<tspan x="15" y="375">@@@@@@@@@@@@@+--==+++*+=+%###+-:-+##*-:::+##=::::--:::::::=++-+***#+:-===+=+*++=-=+**++++**####%@@@@</tspan>
-<tspan x="15" y="386">@@@@@@@@@@@@*=-=-===+++=#%*#*=+----=*.:-*%#+----::::::-==*+*+*##%%+-=+++++**#%#-==++**=**#%**%@@@@@@</tspan>
-<tspan x="15" y="397">@@@@@@@@@@@*=---=*++++=***#++==--:=#@::+#+-----:::::-*=++##**#%%%+:-+++==+*#%#===+*#--+###+*##%%%@@@</tspan>
-<tspan x="15" y="408">@@@@@@@@@@#+---=+==+*+####*=----=-+@%+=*-::::::::-=++++=**#*#%%#=:--+===+*###=-=+*+:-=**++*+**##%%%%</tspan>
-<tspan x="15" y="419">@@@@@@@@@#+=-:-===++=+#####***--=--%%==::----:--+++*+**#%*##**+-::------=*#%--=+**-:=++==++=++*****+</tspan>
-<tspan x="15" y="430">@@@@@@@@%+=---======+****#*+=====--==---===--=+*++*++**####%##=::=*=++=**#%*-=+**-:-=+======++++--+*</tspan>
-<tspan x="15" y="441">@@@@@@@#*=----=+++++=++++++++++==-=-======--==*++#++**######*+::-=+====**%#--=+*=:-=====-====-:-+**#</tspan>
-<tspan x="15" y="452">@@@@@@%+==--:-+++++=+#*++-====++----==+++=+++++++===++****#++-.--=+===+*#%=-=+*+::-====-===---=**###</tspan>
-<tspan x="15" y="463">@@@@@@%=----:-==+--=**++*##+--------=++===++==+***###+-=+*+=-.:--=+==++*#%--=+=::======----:=*******</tspan>
-<tspan x="15" y="474">@@@@@@#+=-----++===+**+++++++++-----======+===+***+*##%%#*=-::---=-==++*##--==::-======----====+=+**</tspan>
-<tspan x="15" y="485">@@@@@%#++-::--+++++=============---===--=+--==+++++**##*#*----==+++++++*#*------=====------==--==+**</tspan>
-<tspan x="15" y="496">@@@@###*==-::-++=*+=+=----===++--:-+*++++=-:--==-=-=+***+-=----=+=++++**#*-----=====------------=+=+</tspan>
-<tspan x="15" y="507">@@@%====---::-==++=====++---===-::==+===+=+++++=-:--+=++==---===++==+++***:----==---------------===+</tspan>
-<tspan x="15" y="518">@@@%+-::-:--:=+=+=----===+++==--:-+=--====-=-===--+==-------============+*:-:-----------------:-----</tspan>
-</text>
+<rect width="1200px" height="539px" fill="#161b22" rx="15"/>
+<rect width="510px" height="539px" fill="#161b22" rx="15"/>
+<line x1="509" y1="15" x2="509" y2="524" stroke="#616e7f" stroke-width="0.5" opacity="0.4"/>
+<circle cx="255" cy="269" r="6" fill="none" stroke="#ffa657" stroke-dasharray="3 4" stroke-width="2.5" opacity="0.9">
+  <animate attributeName="r" from="6" to="245" dur="4.0s" begin="-0.00s" repeatCount="indefinite" calcMode="ease"/>
+  <animate attributeName="opacity" from="0.9" to="0" dur="4.0s" begin="-0.00s" repeatCount="indefinite" calcMode="ease"/>
+  <animate attributeName="stroke-width" from="2.5" to="0.4" dur="4.0s" begin="-0.00s" repeatCount="indefinite" calcMode="ease"/>
+</circle>
+<circle cx="255" cy="269" r="6" fill="none" stroke="#a5d6ff" stroke-dasharray="4 5" stroke-width="2.3" opacity="0.9">
+  <animate attributeName="r" from="6" to="245" dur="4.0s" begin="-0.80s" repeatCount="indefinite" calcMode="ease"/>
+  <animate attributeName="opacity" from="0.9" to="0" dur="4.0s" begin="-0.80s" repeatCount="indefinite" calcMode="ease"/>
+  <animate attributeName="stroke-width" from="2.3" to="0.4" dur="4.0s" begin="-0.80s" repeatCount="indefinite" calcMode="ease"/>
+</circle>
+<circle cx="255" cy="269" r="6" fill="none" stroke="#ffa657" stroke-dasharray="5 6" stroke-width="2.1" opacity="0.9">
+  <animate attributeName="r" from="6" to="245" dur="4.0s" begin="-1.60s" repeatCount="indefinite" calcMode="ease"/>
+  <animate attributeName="opacity" from="0.9" to="0" dur="4.0s" begin="-1.60s" repeatCount="indefinite" calcMode="ease"/>
+  <animate attributeName="stroke-width" from="2.1" to="0.4" dur="4.0s" begin="-1.60s" repeatCount="indefinite" calcMode="ease"/>
+</circle>
+<circle cx="255" cy="269" r="6" fill="none" stroke="#3fb950" stroke-dasharray="3 7" stroke-width="1.9" opacity="0.9">
+  <animate attributeName="r" from="6" to="245" dur="4.0s" begin="-2.40s" repeatCount="indefinite" calcMode="ease"/>
+  <animate attributeName="opacity" from="0.9" to="0" dur="4.0s" begin="-2.40s" repeatCount="indefinite" calcMode="ease"/>
+  <animate attributeName="stroke-width" from="1.9" to="0.4" dur="4.0s" begin="-2.40s" repeatCount="indefinite" calcMode="ease"/>
+</circle>
+<circle cx="255" cy="269" r="6" fill="none" stroke="#a5d6ff" stroke-dasharray="4 4" stroke-width="1.7" opacity="0.9">
+  <animate attributeName="r" from="6" to="245" dur="4.0s" begin="-3.20s" repeatCount="indefinite" calcMode="ease"/>
+  <animate attributeName="opacity" from="0.9" to="0" dur="4.0s" begin="-3.20s" repeatCount="indefinite" calcMode="ease"/>
+  <animate attributeName="stroke-width" from="1.7" to="0.4" dur="4.0s" begin="-3.20s" repeatCount="indefinite" calcMode="ease"/>
+</circle>
+<circle cx="255" cy="269" r="18" fill="none" stroke="#3fb950" stroke-dasharray="1 8" stroke-width="1" opacity="0.4">
+  <animate attributeName="r" from="18" to="122" dur="2.80s" begin="0s" repeatCount="indefinite" calcMode="ease"/>
+  <animate attributeName="opacity" from="0.4" to="0" dur="2.80s" begin="0s" repeatCount="indefinite" calcMode="ease"/>
+</circle>
+<circle cx="255" cy="269" r="18" fill="none" stroke="#3fb950" stroke-dasharray="1 8" stroke-width="1" opacity="0.4">
+  <animate attributeName="r" from="18" to="122" dur="2.80s" begin="-1.40s" repeatCount="indefinite" calcMode="ease"/>
+  <animate attributeName="opacity" from="0.4" to="0" dur="2.80s" begin="-1.40s" repeatCount="indefinite" calcMode="ease"/>
+</circle>
+<circle cx="255" cy="269" r="4" fill="#ffa657" opacity="0.9">
+  <animate attributeName="opacity" values="0.9;1;0.5;1;0.9" dur="2s" repeatCount="indefinite"/>
+  <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite"/>
+</circle>
 <text x="510" y="25" fill="#c9d1d9">
 <tspan x="510" y="25">adityaverma9777@github</tspan> -—————————————————————————————————-—-
 <tspan x="510" y="47" class="cc">. </tspan><tspan class="key">OS</tspan>:<tspan class="cc"> ........................... </tspan><tspan class="value">Windows 11, Android 14</tspan>

@@ -2,27 +2,18 @@ import os
 import html
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ASCII_FILE = os.path.join(HERE, "..", "ascii-art.txt")
-with open(ASCII_FILE, "r", encoding="utf-8") as f:
-    ascii_rows = [line.rstrip("\n") for line in f.readlines()]
-while ascii_rows and not ascii_rows[-1].strip():
-    ascii_rows.pop()
-ascii_rows = ascii_rows[17:]
-
-ASCII_FONT = 8
-ASCII_LINE_H = 11
-ASCII_X = 15
-ASCII_Y0 = 12
 
 INFO_X = 510
 INFO_Y0 = 25
 INFO_LINE_H = 22
 INFO_FONT = 16
-
 CANVAS_W = 1200
-CANVAS_H = max(len(ascii_rows) * ASCII_LINE_H + ASCII_Y0 + 20, 22 * INFO_LINE_H + INFO_Y0 + 30)
+CANVAS_H = 22 * INFO_LINE_H + INFO_Y0 + 30
 
 VALUE_COL = 35
+
+CX = INFO_X // 2
+CY = CANVAS_H // 2
 
 
 def dots(key_display_len):
@@ -30,8 +21,7 @@ def dots(key_display_len):
     return " " + "." * n + " "
 
 
-def kv_line(info_x, y, key, value, key2=None, val_id=None, dots_id=None,
-            key_col=None, val_col=None, cc_col=None, fg=None):
+def kv_line(info_x, y, key, value, key2=None, val_id=None, dots_id=None):
     id_attr = f' id="{val_id}"' if val_id else ""
     did_attr = f' id="{dots_id}"' if dots_id else ""
     key_len = len(key) + (1 + len(key2) if key2 else 0) + 1
@@ -51,15 +41,52 @@ def kv_line(info_x, y, key, value, key2=None, val_id=None, dots_id=None,
     )
 
 
+def pulse_rings(cx, cy, color1, color2, color3):
+    NUM = 5
+    DURATION = 4.0
+    R_START = 6
+    R_END = min(cx - 10, cy - 10)
+    out = []
+    for i in range(NUM):
+        delay = f"-{i * DURATION / NUM:.2f}s"
+        dasharray = f"{3 + i % 3} {4 + i % 4}"
+        col = [color1, color2, color1, color3, color2][i]
+        sw_start = 2.5 - i * 0.2
+        sw_end = 0.4
+        out.append(f"""<circle cx="{cx}" cy="{cy}" r="{R_START}" fill="none"
+  stroke="{col}" stroke-dasharray="{dasharray}" stroke-width="{sw_start}" opacity="0.9">
+  <animate attributeName="r" from="{R_START}" to="{R_END}" dur="{DURATION}s" begin="{delay}" repeatCount="indefinite" calcMode="ease"/>
+  <animate attributeName="opacity" from="0.9" to="0" dur="{DURATION}s" begin="{delay}" repeatCount="indefinite" calcMode="ease"/>
+  <animate attributeName="stroke-width" from="{sw_start}" to="{sw_end}" dur="{DURATION}s" begin="{delay}" repeatCount="indefinite" calcMode="ease"/>
+</circle>""")
+    out.append(f"""<circle cx="{cx}" cy="{cy}" r="{R_START * 3}" fill="none"
+  stroke="{color3}" stroke-dasharray="1 8" stroke-width="1" opacity="0.4">
+  <animate attributeName="r" from="{R_START * 3}" to="{R_END // 2}" dur="{DURATION * 0.7:.2f}s" begin="0s" repeatCount="indefinite" calcMode="ease"/>
+  <animate attributeName="opacity" from="0.4" to="0" dur="{DURATION * 0.7:.2f}s" begin="0s" repeatCount="indefinite" calcMode="ease"/>
+</circle>
+<circle cx="{cx}" cy="{cy}" r="{R_START * 3}" fill="none"
+  stroke="{color3}" stroke-dasharray="1 8" stroke-width="1" opacity="0.4">
+  <animate attributeName="r" from="{R_START * 3}" to="{R_END // 2}" dur="{DURATION * 0.7:.2f}s" begin="-{DURATION * 0.35:.2f}s" repeatCount="indefinite" calcMode="ease"/>
+  <animate attributeName="opacity" from="0.4" to="0" dur="{DURATION * 0.7:.2f}s" begin="-{DURATION * 0.35:.2f}s" repeatCount="indefinite" calcMode="ease"/>
+</circle>""")
+    out.append(f"""<circle cx="{cx}" cy="{cy}" r="4" fill="{color1}" opacity="0.9">
+  <animate attributeName="opacity" values="0.9;1;0.5;1;0.9" dur="2s" repeatCount="indefinite"/>
+  <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite"/>
+</circle>""")
+    return "\n".join(out)
+
+
 def make_svg(theme):
     if theme == "dark":
         bg, fg = "#161b22", "#c9d1d9"
-        ascii_fg = "#c9d1d9"
-        key_col, val_col, add_col, del_col, cc_col = "#ffa657", "#a5d6ff", "#3fb950", "#f85149", "#616e7f"
+        key_col, val_col = "#ffa657", "#a5d6ff"
+        add_col, del_col, cc_col = "#3fb950", "#f85149", "#616e7f"
+        p1, p2, p3 = "#ffa657", "#a5d6ff", "#3fb950"
     else:
         bg, fg = "#f6f8fa", "#24292f"
-        ascii_fg = "#24292f"
-        key_col, val_col, add_col, del_col, cc_col = "#953800", "#0a3069", "#1a7f37", "#cf222e", "#9e9e9e"
+        key_col, val_col = "#953800", "#0a3069"
+        add_col, del_col, cc_col = "#1a7f37", "#cf222e", "#9e9e9e"
+        p1, p2, p3 = "#953800", "#0a3069", "#1a7f37"
 
     def y(i):
         return INFO_Y0 + i * INFO_LINE_H
@@ -84,22 +111,16 @@ size-adjust: 109%;
 .addColor {{fill: {add_col};}}
 .delColor {{fill: {del_col};}}
 .cc {{fill: {cc_col};}}
-.ascii {{font-size: {ASCII_FONT}px;}}
 text, tspan {{white-space: pre;}}
 </style>""")
     parts.append(f'<rect width="{CANVAS_W}px" height="{CANVAS_H}px" fill="{bg}" rx="15"/>')
-
-    parts.append(f'<text x="{ASCII_X}" y="{ASCII_Y0}" fill="{ascii_fg}" class="ascii">')
-    for i, row_txt in enumerate(ascii_rows):
-        ry = ASCII_Y0 + i * ASCII_LINE_H
-        parts.append(f'<tspan x="{ASCII_X}" y="{ry}">{html.escape(row_txt)}</tspan>')
-    parts.append('</text>')
-
+    parts.append(f'<rect width="{INFO_X}px" height="{CANVAS_H}px" fill="{bg}" rx="15"/>')
+    parts.append(f'<line x1="{INFO_X - 1}" y1="15" x2="{INFO_X - 1}" y2="{CANVAS_H - 15}" stroke="{cc_col}" stroke-width="0.5" opacity="0.4"/>')
+    parts.append(pulse_rings(CX, CY, p1, p2, p3))
     parts.append(f'<text x="{INFO_X}" y="{INFO_Y0}" fill="{fg}">')
 
     DASH = "\u2014" * 33 + "-\u2014-"
     parts.append(f'<tspan x="{INFO_X}" y="{y(0)}">adityaverma9777@github</tspan> -{DASH}')
-
     parts.append(kv_line(INFO_X, y(1), "OS", "Windows 11, Android 14"))
     parts.append(kv_line(INFO_X, y(2), "Uptime", "calculating...", val_id="age_data", dots_id="age_data_dots"))
     parts.append(kv_line(INFO_X, y(3), "Focus", "ML Systems & Inference Eng."))
@@ -114,7 +135,6 @@ text, tspan {{white-space: pre;}}
 
     CDASH = "\u2014" * 30 + "-\u2014-"
     parts.append(f'<tspan x="{INFO_X}" y="{y(12)}">- Contact</tspan> -{CDASH}')
-
     parts.append(kv_line(INFO_X, y(13), "Email", "adityaverma9777@gmail.com"))
     parts.append(kv_line(INFO_X, y(14), "Portfolio", "adityavermaworks.in"))
     parts.append(kv_line(INFO_X, y(15), "LinkedIn", "adityaverma9777"))
