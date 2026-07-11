@@ -7,6 +7,7 @@ with open(ASCII_FILE, "r", encoding="utf-8") as f:
     ascii_rows = [line.rstrip("\n") for line in f.readlines()]
 while ascii_rows and not ascii_rows[-1].strip():
     ascii_rows.pop()
+ascii_rows = ascii_rows[8:]
 
 ASCII_FONT = 8
 ASCII_LINE_H = 11
