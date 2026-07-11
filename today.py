@@ -97,7 +97,6 @@ def update_svg(path, age_str, repos, contributed, stars, followers, commits):
             el.text = str(value)
 
     set_stat("repo_data", "repo_data_dots", repos)
-    set_stat("contrib_data", "repo_data_dots", contributed)
     set_stat("star_data", "star_data_dots", stars)
     set_stat("follower_data", "follower_data_dots", followers)
     set_stat("commit_data", "commit_data_dots", commits)

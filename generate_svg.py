@@ -174,7 +174,6 @@ text, tspan {{white-space: pre;}}
         f'<tspan class="key">Repos</tspan>:'
         f'<tspan class="cc" id="repo_data_dots">{html.escape(repo_dots)}</tspan>'
         f'<tspan class="value" id="repo_data">-</tspan>'
-        f' {{<tspan class="key">Contributed</tspan>: <tspan class="value" id="contrib_data">-</tspan>}}'
         f' | <tspan class="key">Stars</tspan>:'
         f'<tspan class="cc" id="star_data_dots">{html.escape(star_dots)}</tspan>'
         f'<tspan class="value" id="star_data">-</tspan>'
