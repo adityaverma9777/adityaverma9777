@@ -8,7 +8,7 @@ INFO_Y0 = 25
 INFO_LINE_H = 22
 INFO_FONT = 16
 CANVAS_W = 1250
-CANVAS_H = 26 * INFO_LINE_H + INFO_Y0 + 30
+CANVAS_H = 27 * INFO_LINE_H + INFO_Y0 + 30
 
 VALUE_COL = 33
 
@@ -155,7 +155,8 @@ text, tspan {{white-space: pre;}}
     parts.append(kv_line(INFO_X, y(y_idx), "Tech", "Google Cloud Platform", key2="Cloud")); y_idx+=1
     parts.append(f'<tspan x="{INFO_X}" y="{y(y_idx)}" class="cc">. </tspan>'); y_idx+=1
     
-    parts.append(kv_line(INFO_X, y(y_idx), "Interests", "ML Systems, Inference Eng., Production AI, Deployment")); y_idx+=1
+    parts.append(kv_line(INFO_X, y(y_idx), "Interests", "ML Systems, Inference Eng.")); y_idx+=1
+    parts.append(f'<tspan x="{INFO_X}" y="{y(y_idx)}">{" " * 32}<tspan class="value">Production AI, Model Deployment</tspan></tspan>'); y_idx+=1
 
     CDASH = "\u2014" * 35 + "-\u2014-"
     parts.append(f'<tspan x="{INFO_X}" y="{y(y_idx)}">- Contact</tspan> -{CDASH}'); y_idx+=1
