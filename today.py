@@ -1,0 +1,119 @@
+import datetime
+import os
+import re
+import requests
+from lxml import etree
+
+BIRTHDAY = datetime.date(2003, 9, 7)
+USER_NAME = os.environ.get("USER_NAME", "adityaverma9777")
+ACCESS_TOKEN = os.environ.get("ACCESS_TOKEN", "")
+HEADERS = {"Authorization": f"token {ACCESS_TOKEN}"} if ACCESS_TOKEN else {}
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+DARK_SVG = os.path.join(HERE, "dark_mode.svg")
+LIGHT_SVG = os.path.join(HERE, "light_mode.svg")
+
+
+def uptime():
+    today = datetime.date.today()
+    d = today - BIRTHDAY
+    years = today.year - BIRTHDAY.year - ((today.month, today.day) < (BIRTHDAY.month, BIRTHDAY.day))
+    months_val = (today.month - BIRTHDAY.month - (today.day < BIRTHDAY.day)) % 12
+    tmp = datetime.date(BIRTHDAY.year + years, BIRTHDAY.month, BIRTHDAY.day)
+    tmp2_month = tmp.month + months_val
+    tmp2_year = tmp.year + (tmp2_month - 1) // 12
+    tmp2_month = (tmp2_month - 1) % 12 + 1
+    tmp2 = datetime.date(tmp2_year, tmp2_month, tmp.day)
+    days_val = (today - tmp2).days
+    def p(n, w): return f"{n} {w}{'s' if n != 1 else ''}"
+    return f"{p(years,'year')}, {p(months_val,'month')}, {p(days_val,'day')}"
+
+
+def gh_query(query, variables=None):
+    r = requests.post(
+        "https://api.github.com/graphql",
+        json={"query": query, "variables": variables or {}},
+        headers=HEADERS,
+        timeout=30,
+    )
+    r.raise_for_status()
+    return r.json()
+
+
+def get_stats():
+    query = """
+    query($login: String!) {
+      user(login: $login) {
+        repositories(ownerAffiliations: OWNER, first: 1) { totalCount }
+        repositoriesContributedTo(first: 1) { totalCount }
+        starredRepositories { totalCount }
+        followers { totalCount }
+        contributionsCollection {
+          totalCommitContributions
+          restrictedContributionsCount
+        }
+      }
+    }"""
+    try:
+        data = gh_query(query, {"login": USER_NAME})["data"]["user"]
+        repos = data["repositories"]["totalCount"]
+        contributed = data["repositoriesContributedTo"]["totalCount"]
+        stars = data["starredRepositories"]["totalCount"]
+        followers = data["followers"]["totalCount"]
+        cc = data["contributionsCollection"]
+        commits = cc["totalCommitContributions"] + cc["restrictedContributionsCount"]
+        return repos, contributed, stars, followers, commits
+    except Exception as e:
+        print(f"stats fetch failed: {e}")
+        return None, None, None, None, None
+
+
+def pad_dots(current_dots, old_val, new_val):
+    diff = len(str(new_val)) - len(str(old_val))
+    if diff > 0:
+        return current_dots[:-diff] if len(current_dots) > diff else "."
+    elif diff < 0:
+        return current_dots + "." * (-diff)
+    return current_dots
+
+
+def update_svg(path, age_str, repos, contributed, stars, followers, commits):
+    parser = etree.XMLParser(remove_blank_text=False)
+    tree = etree.parse(path, parser)
+    root = tree.getroot()
+
+    def find(id_val):
+        return root.find(f'.//*[@id="{id_val}"]')
+
+    age_el = find("age_data")
+    if age_el is not None:
+        dots_el = find("age_data_dots")
+        if dots_el is not None and age_el.text:
+            dots_el.text = pad_dots(dots_el.text or "", age_el.text or "", age_str)
+        age_el.text = age_str
+
+    def set_stat(id_name, dots_id, value):
+        el = find(id_name)
+        if el is not None and value is not None:
+            dots_el = find(dots_id)
+            if dots_el is not None and el.text:
+                dots_el.text = pad_dots(dots_el.text or "", el.text or "", str(value))
+            el.text = str(value)
+
+    set_stat("repo_data", "repo_data_dots", repos)
+    set_stat("contrib_data", "repo_data_dots", contributed)
+    set_stat("star_data", "star_data_dots", stars)
+    set_stat("follower_data", "follower_data_dots", followers)
+    set_stat("commit_data", "commit_data_dots", commits)
+
+    tree.write(path, xml_declaration=True, encoding="UTF-8", pretty_print=False)
+    print(f"updated {path}")
+
+
+if __name__ == "__main__":
+    age_str = uptime()
+    print(f"Uptime: {age_str}")
+    repos, contributed, stars, followers, commits = get_stats()
+    print(f"Repos: {repos}, Contributed: {contributed}, Stars: {stars}, Followers: {followers}, Commits: {commits}")
+    for svg_path in [DARK_SVG, LIGHT_SVG]:
+        update_svg(svg_path, age_str, repos, contributed, stars, followers, commits)

@@ -1,38 +1,42 @@
-name: Update profile art
+name: README build
 
 on:
+  push:
+    branches:
+      - main
   schedule:
-    - cron: "0 3 * * *"
-  workflow_dispatch:
+    - cron: "0 4 * * *"
 
 permissions:
   contents: write
 
 jobs:
-  update:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
-      - uses: actions/setup-python@v5
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - name: Install deps
-        run: pip install -r scripts/requirements.txt
+      - name: Install dependencies
+        run: pip install requests lxml python-dateutil
 
-      - name: Fetch contributions
+      - name: Update SVGs
         env:
-          GH_PROFILE_USER: adityaverma9777
-        run: python scripts/fetch_contributions.py
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          USER_NAME: adityaverma9777
+        run: python today.py
 
-      - name: Render heatmap
-        run: python scripts/render_heatmap_svg.py
-
-      - name: Commit & push
+      - name: Commit
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add contrib-heatmap.svg data/contributions.json
-          git diff --cached --quiet || git commit -m "chore: refresh contribution graph"
+          git config --global user.email "github-actions-bot@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          git add dark_mode.svg light_mode.svg
+          git diff --cached --quiet || git commit -m "chore: update profile stats"
           git push
