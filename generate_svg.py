@@ -8,7 +8,7 @@ INFO_Y0 = 25
 INFO_LINE_H = 22
 INFO_FONT = 16
 CANVAS_W = 1250
-CANVAS_H = 28 * INFO_LINE_H + INFO_Y0 + 30
+CANVAS_H = 26 * INFO_LINE_H + INFO_Y0 + 30
 
 VALUE_COL = 33
 
@@ -139,11 +139,9 @@ text, tspan {{white-space: pre;}}
     
     y_idx = 0
     parts.append(f'<tspan x="{INFO_X}" y="{y(y_idx)}">adityaverma9777@github</tspan> -{DASH}'); y_idx+=1
-    parts.append(kv_line(INFO_X, y(y_idx), "OS", "Windows 11, Android 14")); y_idx+=1
-    parts.append(kv_line(INFO_X, y(y_idx), "Uptime", "calculating...", val_id="age_data", dots_id="age_data_dots")); y_idx+=1
     parts.append(kv_line(INFO_X, y(y_idx), "Focus", "ML Systems & Inference Eng.")); y_idx+=1
-    parts.append(kv_line(INFO_X, y(y_idx), "Edu", "BS (4 Years) Zoology Major (21-25)", key2="BS")); y_idx+=1
-    parts.append(kv_line(INFO_X, y(y_idx), "Edu", "BCA (26-29)", key2="BCA")); y_idx+=1
+    parts.append(kv_line(INFO_X, y(y_idx), "Edu", "BS (4 Years) Zoology Major (21-25)")); y_idx+=1
+    parts.append(kv_line(INFO_X, y(y_idx), "Edu", "BCA (26-29)")); y_idx+=1
     parts.append(kv_line(INFO_X, y(y_idx), "Hobbies", "Football, Cooking, Mountains")); y_idx+=1
     parts.append(f'<tspan x="{INFO_X}" y="{y(y_idx)}" class="cc">. </tspan>'); y_idx+=1
     

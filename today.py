@@ -14,19 +14,7 @@ DARK_SVG = os.path.join(HERE, "dark_mode.svg")
 LIGHT_SVG = os.path.join(HERE, "light_mode.svg")
 
 
-def uptime():
-    today = datetime.date.today()
-    d = today - BIRTHDAY
-    years = today.year - BIRTHDAY.year - ((today.month, today.day) < (BIRTHDAY.month, BIRTHDAY.day))
-    months_val = (today.month - BIRTHDAY.month - (today.day < BIRTHDAY.day)) % 12
-    tmp = datetime.date(BIRTHDAY.year + years, BIRTHDAY.month, BIRTHDAY.day)
-    tmp2_month = tmp.month + months_val
-    tmp2_year = tmp.year + (tmp2_month - 1) // 12
-    tmp2_month = (tmp2_month - 1) % 12 + 1
-    tmp2 = datetime.date(tmp2_year, tmp2_month, tmp.day)
-    days_val = (today - tmp2).days
-    def p(n, w): return f"{n} {w}{'s' if n != 1 else ''}"
-    return f"{p(years,'year')}, {p(months_val,'month')}, {p(days_val,'day')}"
+# Uptime removed
 
 
 def gh_query(query, variables=None):
@@ -119,9 +107,7 @@ def update_svg(path, age_str, repos, contributed, stars, followers, commits):
 
 
 if __name__ == "__main__":
-    age_str = uptime()
-    print(f"Uptime: {age_str}")
     repos, contributed, stars, followers, commits = get_stats()
     print(f"Repos: {repos}, Contributed: {contributed}, Stars: {stars}, Followers: {followers}, Commits: {commits}")
     for svg_path in [DARK_SVG, LIGHT_SVG]:
-        update_svg(svg_path, age_str, repos, contributed, stars, followers, commits)
+        update_svg(svg_path, "", repos, contributed, stars, followers, commits)
