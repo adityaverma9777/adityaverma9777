@@ -139,7 +139,7 @@ text, tspan {{white-space: pre;}}
     
     y_idx = 0
     parts.append(f'<tspan x="{INFO_X}" y="{y(y_idx)}">adityaverma9777@github</tspan> -{DASH}'); y_idx+=1
-    parts.append(kv_line(INFO_X, y(y_idx), "Focus", "ML Systems & Inference Eng.")); y_idx+=1
+    parts.append(kv_line(INFO_X, y(y_idx), "Focus", "Backend Engineering | AI/ML | Data Science")); y_idx+=1
     parts.append(kv_line(INFO_X, y(y_idx), "Edu", "BS (4 Years) Zoology Major (21-25)")); y_idx+=1
     parts.append(kv_line(INFO_X, y(y_idx), "Edu", "BCA (26-29)")); y_idx+=1
     parts.append(kv_line(INFO_X, y(y_idx), "Hobbies", "Football, Cooking, Mountains")); y_idx+=1
