@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" font-family="ConsolasFallback,Consolas,monospace" width="1200px" height="539px" font-size="16px">
+<svg xmlns="http://www.w3.org/2000/svg" font-family="ConsolasFallback,Consolas,monospace" width="1250px" height="671px" font-size="16px">
 <style>
 @font-face {
 src: local('Consolas'), local('Consolas Bold');
@@ -10,60 +10,82 @@ size-adjust: 109%;
 }
 .key {fill: #953800;}
 .value {fill: #0a3069;}
+.link {text-decoration: underline; cursor: pointer;}
+.link:hover {fill: #1a7f37;}
 .addColor {fill: #1a7f37;}
 .delColor {fill: #cf222e;}
 .cc {fill: #9e9e9e;}
 text, tspan {white-space: pre;}
 </style>
-<rect width="1200px" height="539px" fill="#f6f8fa" rx="15"/>
-<rect width="510px" height="539px" fill="#f6f8fa" rx="15"/>
-<line x1="509" y1="15" x2="509" y2="524" stroke="#9e9e9e" stroke-width="0.5" opacity="0.4"/>
-<g transform="translate(255, 269)">\n<circle r="188.0" fill="none" stroke="#953800" stroke-width="1.5" stroke-dasharray="2 12" opacity="0.2">
+<rect width="1250px" height="671px" fill="#f6f8fa" rx="15"/>
+<rect width="510px" height="671px" fill="#f6f8fa" rx="15"/>
+<line x1="509" y1="15" x2="509" y2="656" stroke="#9e9e9e" stroke-width="0.5" opacity="0.4"/>
+<g transform="translate(255, 335)">
+<circle r="188.0" fill="none" stroke="#953800" stroke-width="1.5" stroke-dasharray="2 12" opacity="0.2">
   <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="40s" repeatCount="indefinite"/>
-</circle>\n<circle r="141.0" fill="none" stroke="#0a3069" stroke-width="2" stroke-dasharray="1 6 4 6" opacity="0.3">
+</circle>
+<circle r="141.0" fill="none" stroke="#0a3069" stroke-width="2" stroke-dasharray="1 6 4 6" opacity="0.3">
   <animateTransform attributeName="transform" type="rotate" from="360" to="0" dur="25s" repeatCount="indefinite"/>
-</circle>\n<circle r="0" fill="none" stroke="#953800" stroke-width="1.5" opacity="0">
+</circle>
+<circle r="0" fill="none" stroke="#953800" stroke-width="1.5" opacity="0">
   <animate attributeName="r" values="10; 235" dur="6.0s" begin="-0.00s" repeatCount="indefinite" calcMode="spline" keyTimes="0; 1" keySplines="0.165 0.84 0.44 1"/>
   <animate attributeName="opacity" values="0.7; 0" dur="6.0s" begin="-0.00s" repeatCount="indefinite" calcMode="spline" keyTimes="0; 1" keySplines="0.165 0.84 0.44 1"/>
-</circle>\n<circle r="0" fill="none" stroke="#953800" stroke-width="1.5" opacity="0">
+</circle>
+<circle r="0" fill="none" stroke="#953800" stroke-width="1.5" opacity="0">
   <animate attributeName="r" values="10; 235" dur="6.0s" begin="-1.50s" repeatCount="indefinite" calcMode="spline" keyTimes="0; 1" keySplines="0.165 0.84 0.44 1"/>
   <animate attributeName="opacity" values="0.7; 0" dur="6.0s" begin="-1.50s" repeatCount="indefinite" calcMode="spline" keyTimes="0; 1" keySplines="0.165 0.84 0.44 1"/>
-</circle>\n<circle r="0" fill="none" stroke="#953800" stroke-width="1.5" opacity="0">
+</circle>
+<circle r="0" fill="none" stroke="#953800" stroke-width="1.5" opacity="0">
   <animate attributeName="r" values="10; 235" dur="6.0s" begin="-3.00s" repeatCount="indefinite" calcMode="spline" keyTimes="0; 1" keySplines="0.165 0.84 0.44 1"/>
   <animate attributeName="opacity" values="0.7; 0" dur="6.0s" begin="-3.00s" repeatCount="indefinite" calcMode="spline" keyTimes="0; 1" keySplines="0.165 0.84 0.44 1"/>
-</circle>\n<circle r="0" fill="none" stroke="#953800" stroke-width="1.5" opacity="0">
+</circle>
+<circle r="0" fill="none" stroke="#953800" stroke-width="1.5" opacity="0">
   <animate attributeName="r" values="10; 235" dur="6.0s" begin="-4.50s" repeatCount="indefinite" calcMode="spline" keyTimes="0; 1" keySplines="0.165 0.84 0.44 1"/>
   <animate attributeName="opacity" values="0.7; 0" dur="6.0s" begin="-4.50s" repeatCount="indefinite" calcMode="spline" keyTimes="0; 1" keySplines="0.165 0.84 0.44 1"/>
-</circle>\n<circle r="0" fill="none" stroke="#1a7f37" stroke-width="1" stroke-dasharray="4 4" opacity="0">
+</circle>
+<circle r="0" fill="none" stroke="#1a7f37" stroke-width="1" stroke-dasharray="4 4" opacity="0">
   <animate attributeName="r" values="5; 164.5" dur="3.0s" begin="-0.00s" repeatCount="indefinite" calcMode="spline" keyTimes="0; 1" keySplines="0.165 0.84 0.44 1"/>
   <animate attributeName="opacity" values="0.5; 0" dur="3.0s" begin="-0.00s" repeatCount="indefinite" calcMode="spline" keyTimes="0; 1" keySplines="0.165 0.84 0.44 1"/>
-</circle>\n<circle r="0" fill="none" stroke="#1a7f37" stroke-width="1" stroke-dasharray="4 4" opacity="0">
+</circle>
+<circle r="0" fill="none" stroke="#1a7f37" stroke-width="1" stroke-dasharray="4 4" opacity="0">
   <animate attributeName="r" values="5; 164.5" dur="3.0s" begin="-1.00s" repeatCount="indefinite" calcMode="spline" keyTimes="0; 1" keySplines="0.165 0.84 0.44 1"/>
   <animate attributeName="opacity" values="0.5; 0" dur="3.0s" begin="-1.00s" repeatCount="indefinite" calcMode="spline" keyTimes="0; 1" keySplines="0.165 0.84 0.44 1"/>
-</circle>\n<circle r="0" fill="none" stroke="#1a7f37" stroke-width="1" stroke-dasharray="4 4" opacity="0">
+</circle>
+<circle r="0" fill="none" stroke="#1a7f37" stroke-width="1" stroke-dasharray="4 4" opacity="0">
   <animate attributeName="r" values="5; 164.5" dur="3.0s" begin="-2.00s" repeatCount="indefinite" calcMode="spline" keyTimes="0; 1" keySplines="0.165 0.84 0.44 1"/>
   <animate attributeName="opacity" values="0.5; 0" dur="3.0s" begin="-2.00s" repeatCount="indefinite" calcMode="spline" keyTimes="0; 1" keySplines="0.165 0.84 0.44 1"/>
-</circle>\n<circle r="16" fill="#953800" opacity="0.15"><animate attributeName="r" values="14;18;14" dur="4s" repeatCount="indefinite"/></circle>\n<circle r="10" fill="#0a3069" opacity="0.25"><animate attributeName="r" values="9;11;9" dur="3s" repeatCount="indefinite"/></circle>\n<circle r="5" fill="#1a7f37" opacity="0.8"><animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/></circle>\n<circle r="2" fill="#f6f8fa" opacity="0.9"/>\n</g>
+</circle>
+<circle r="16" fill="#953800" opacity="0.15"><animate attributeName="r" values="14;18;14" dur="4s" repeatCount="indefinite"/></circle>
+<circle r="10" fill="#0a3069" opacity="0.25"><animate attributeName="r" values="9;11;9" dur="3s" repeatCount="indefinite"/></circle>
+<circle r="5" fill="#1a7f37" opacity="0.8"><animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/></circle>
+<circle r="2" fill="#f6f8fa" opacity="0.9"/>
+</g>
 <text x="510" y="25" fill="#24292f">
-<tspan x="510" y="25">adityaverma9777@github</tspan> -—————————————————————————————————-—-
-<tspan x="510" y="47" class="cc">. </tspan><tspan class="key">OS</tspan>:<tspan class="cc"> ........................... </tspan><tspan class="value">Windows 11, Android 14</tspan>
-<tspan x="510" y="69" class="cc">. </tspan><tspan class="key">Uptime</tspan>:<tspan class="cc" id="age_data_dots"> ...........</tspan><tspan class="value" id="age_data">22 years, 10 months, 4 days</tspan>
-<tspan x="510" y="91" class="cc">. </tspan><tspan class="key">Focus</tspan>:<tspan class="cc"> ........................ </tspan><tspan class="value">ML Systems &amp; Inference Eng.</tspan>
-<tspan x="510" y="113" class="cc">. </tspan><tspan class="key">Edu</tspan>:<tspan class="cc"> .......................... </tspan><tspan class="value">BCA — Computer Applications</tspan>
-<tspan x="510" y="135" class="cc">. </tspan><tspan class="key">IDE</tspan>:<tspan class="cc"> .......................... </tspan><tspan class="value">VSCode, PyCharm</tspan>
-<tspan x="510" y="157" class="cc">. </tspan>
-<tspan x="510" y="179" class="cc">. </tspan><tspan class="key">Languages</tspan>.<tspan class="key">Programming</tspan>:<tspan class="cc"> ........ </tspan><tspan class="value">Python, TypeScript, Java, C++</tspan>
-<tspan x="510" y="201" class="cc">. </tspan><tspan class="key">Languages</tspan>.<tspan class="key">Computer</tspan>:<tspan class="cc"> ........... </tspan><tspan class="value">HTML, CSS, JSON, YAML</tspan>
-<tspan x="510" y="223" class="cc">. </tspan>
-<tspan x="510" y="245" class="cc">. </tspan><tspan class="key">Interests</tspan>.<tspan class="key">AI</tspan>:<tspan class="cc"> ................. </tspan><tspan class="value">Inference Opt., PyTorch, HF</tspan>
-<tspan x="510" y="267" class="cc">. </tspan><tspan class="key">Interests</tspan>.<tspan class="key">Backend</tspan>:<tspan class="cc"> ............ </tspan><tspan class="value">FastAPI, Redis, PostgreSQL</tspan>
-<tspan x="510" y="289">- Contact</tspan> -——————————————————————————————-—-
-<tspan x="510" y="311" class="cc">. </tspan><tspan class="key">Email</tspan>:<tspan class="cc"> ........................ </tspan><tspan class="value">adityaverma9777@gmail.com</tspan>
-<tspan x="510" y="333" class="cc">. </tspan><tspan class="key">Portfolio</tspan>:<tspan class="cc"> .................... </tspan><tspan class="value">adityavermaworks.in</tspan>
-<tspan x="510" y="355" class="cc">. </tspan><tspan class="key">LinkedIn</tspan>:<tspan class="cc"> ..................... </tspan><tspan class="value">adityaverma9777</tspan>
-<tspan x="510" y="377" class="cc">. </tspan><tspan class="key">Instagram</tspan>:<tspan class="cc"> .................... </tspan><tspan class="value">chaii.samosa</tspan>
-<tspan x="510" y="399">- GitHub Stats</tspan> -——————————————————————————-—-
-<tspan x="510" y="421" class="cc">. </tspan><tspan class="key">Repos</tspan>:<tspan class="cc" id="repo_data_dots"> ........................</tspan><tspan class="value" id="repo_data">26</tspan> {<tspan class="key">Contributed</tspan>: <tspan class="value" id="contrib_data">-</tspan>} | <tspan class="key">Stars</tspan>:<tspan class="cc" id="star_data_dots"> ........................ </tspan><tspan class="value" id="star_data">-</tspan>
-<tspan x="510" y="443" class="cc">. </tspan><tspan class="key">Commits</tspan>:<tspan class="cc" id="commit_data_dots"> ...................... </tspan><tspan class="value" id="commit_data">-</tspan> | <tspan class="key">Followers</tspan>:<tspan class="cc" id="follower_data_dots"> .................... </tspan><tspan class="value" id="follower_data">7</tspan>
+<tspan x="510" y="25">adityaverma9777@github</tspan> -——————————————————————————————————————-—-
+<tspan x="510" y="47" class="cc">. </tspan><tspan class="key">OS</tspan>:<tspan class="cc"> ......................... </tspan><tspan class="value">Windows 11, Android 14</tspan>
+<tspan x="510" y="69" class="cc">. </tspan><tspan class="key">Uptime</tspan>:<tspan class="cc" id="age_data_dots"> .........</tspan><tspan class="value" id="age_data">22 years, 10 months, 4 days</tspan>
+<tspan x="510" y="91" class="cc">. </tspan><tspan class="key">Focus</tspan>:<tspan class="cc"> ...................... </tspan><tspan class="value">ML Systems &amp; Inference Eng.</tspan>
+<tspan x="510" y="113" class="cc">. </tspan><tspan class="key">Edu</tspan>.<tspan class="key">BS</tspan>:<tspan class="cc"> ..................... </tspan><tspan class="value">BS (4 Years) Zoology Major (21-25)</tspan>
+<tspan x="510" y="135" class="cc">. </tspan><tspan class="key">Edu</tspan>.<tspan class="key">BCA</tspan>:<tspan class="cc"> .................... </tspan><tspan class="value">BCA (26-29)</tspan>
+<tspan x="510" y="157" class="cc">. </tspan><tspan class="key">Hobbies</tspan>:<tspan class="cc"> .................... </tspan><tspan class="value">Football, Cooking, Mountains</tspan>
+<tspan x="510" y="179" class="cc">. </tspan>
+<tspan x="510" y="201" class="cc">. </tspan><tspan class="key">Tech</tspan>.<tspan class="key">Languages</tspan>:<tspan class="cc"> ............. </tspan><tspan class="value">Python, TypeScript, JavaScript, Java, C++</tspan>
+<tspan x="510" y="223" class="cc">. </tspan><tspan class="key">Tech</tspan>.<tspan class="key">AI/ML</tspan>:<tspan class="cc"> ................. </tspan><tspan class="value">PyTorch, NumPy, Hugging Face</tspan>
+<tspan x="510" y="245" class="cc">. </tspan><tspan class="key">Tech</tspan>.<tspan class="key">Backend</tspan>:<tspan class="cc"> ............... </tspan><tspan class="value">FastAPI</tspan>
+<tspan x="510" y="267" class="cc">. </tspan><tspan class="key">Tech</tspan>.<tspan class="key">Databases</tspan>:<tspan class="cc"> ............. </tspan><tspan class="value">PostgreSQL, MongoDB</tspan>
+<tspan x="510" y="289" class="cc">. </tspan><tspan class="key">Tech</tspan>.<tspan class="key">Caching</tspan>:<tspan class="cc"> ............... </tspan><tspan class="value">Redis</tspan>
+<tspan x="510" y="311" class="cc">. </tspan><tspan class="key">Tech</tspan>.<tspan class="key">Frontend</tspan>:<tspan class="cc"> .............. </tspan><tspan class="value">React, Next.js, Tailwind CSS, HTML5</tspan>
+<tspan x="510" y="333" class="cc">. </tspan><tspan class="key">Tech</tspan>.<tspan class="key">DevOps</tspan>:<tspan class="cc"> ................ </tspan><tspan class="value">Docker, Git</tspan>
+<tspan x="510" y="355" class="cc">. </tspan><tspan class="key">Tech</tspan>.<tspan class="key">Cloud</tspan>:<tspan class="cc"> ................. </tspan><tspan class="value">Google Cloud Platform</tspan>
+<tspan x="510" y="377" class="cc">. </tspan>
+<tspan x="510" y="399" class="cc">. </tspan><tspan class="key">Interests</tspan>:<tspan class="cc"> .................. </tspan><tspan class="value">ML Systems, Inference Eng., Production AI, Deployment</tspan>
+<tspan x="510" y="421">- Contact</tspan> -———————————————————————————————————-—-
+<tspan x="510" y="443" class="cc">. </tspan><tspan class="key">Email</tspan>:<tspan class="cc"> ...................... </tspan><a href="mailto:adityaverma9777@gmail.com" target="_blank"><tspan class="value link">adityaverma9777@gmail.com</tspan></a>
+<tspan x="510" y="465" class="cc">. </tspan><tspan class="key">Portfolio</tspan>:<tspan class="cc"> .................. </tspan><a href="https://www.adityavermaworks.in/" target="_blank"><tspan class="value link">https://www.adityavermaworks.in/</tspan></a>
+<tspan x="510" y="487" class="cc">. </tspan><tspan class="key">LinkedIn</tspan>:<tspan class="cc"> ................... </tspan><a href="https://linkedin.com/in/adityaverma9777" target="_blank"><tspan class="value link">https://linkedin.com/in/adityaverma9777</tspan></a>
+<tspan x="510" y="509" class="cc">. </tspan><tspan class="key">Instagram</tspan>:<tspan class="cc"> .................. </tspan><a href="https://instagram.com/chaii.samosa" target="_blank"><tspan class="value link">https://instagram.com/chaii.samosa</tspan></a>
+<tspan x="510" y="531">- GitHub Stats</tspan> -———————————————————————————————-—-
+<tspan x="510" y="553" class="cc">. </tspan><tspan class="key">Repos</tspan>:<tspan class="cc" id="repo_data_dots"> ......................</tspan><tspan class="value" id="repo_data">26</tspan> {<tspan class="key">Contributed</tspan>: <tspan class="value" id="contrib_data">-</tspan>} | <tspan class="key">Stars</tspan>:<tspan class="cc" id="star_data_dots"> ...................... </tspan><tspan class="value" id="star_data">-</tspan>
+<tspan x="510" y="575" class="cc">. </tspan><tspan class="key">Commits</tspan>:<tspan class="cc" id="commit_data_dots"> .................... </tspan><tspan class="value" id="commit_data">-</tspan> | <tspan class="key">Followers</tspan>:<tspan class="cc" id="follower_data_dots"> .................. </tspan><tspan class="value" id="follower_data">7</tspan>
 </text>
 </svg>
