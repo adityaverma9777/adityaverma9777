@@ -41,39 +41,51 @@ def kv_line(info_x, y, key, value, key2=None, val_id=None, dots_id=None):
     )
 
 
-def pulse_rings(cx, cy, color1, color2, color3):
-    NUM = 5
-    DURATION = 4.0
-    R_START = 6
-    R_END = min(cx - 10, cy - 10)
+def pulse_rings(cx, cy, color1, color2, color3, bg):
     out = []
-    for i in range(NUM):
-        delay = f"-{i * DURATION / NUM:.2f}s"
-        dasharray = f"{3 + i % 3} {4 + i % 4}"
-        col = [color1, color2, color1, color3, color2][i]
-        sw_start = 2.5 - i * 0.2
-        sw_end = 0.4
-        out.append(f"""<circle cx="{cx}" cy="{cy}" r="{R_START}" fill="none"
-  stroke="{col}" stroke-dasharray="{dasharray}" stroke-width="{sw_start}" opacity="0.9">
-  <animate attributeName="r" from="{R_START}" to="{R_END}" dur="{DURATION}s" begin="{delay}" repeatCount="indefinite" calcMode="ease"/>
-  <animate attributeName="opacity" from="0.9" to="0" dur="{DURATION}s" begin="{delay}" repeatCount="indefinite" calcMode="ease"/>
-  <animate attributeName="stroke-width" from="{sw_start}" to="{sw_end}" dur="{DURATION}s" begin="{delay}" repeatCount="indefinite" calcMode="ease"/>
-</circle>""")
-    out.append(f"""<circle cx="{cx}" cy="{cy}" r="{R_START * 3}" fill="none"
-  stroke="{color3}" stroke-dasharray="1 8" stroke-width="1" opacity="0.4">
-  <animate attributeName="r" from="{R_START * 3}" to="{R_END // 2}" dur="{DURATION * 0.7:.2f}s" begin="0s" repeatCount="indefinite" calcMode="ease"/>
-  <animate attributeName="opacity" from="0.4" to="0" dur="{DURATION * 0.7:.2f}s" begin="0s" repeatCount="indefinite" calcMode="ease"/>
-</circle>
-<circle cx="{cx}" cy="{cy}" r="{R_START * 3}" fill="none"
-  stroke="{color3}" stroke-dasharray="1 8" stroke-width="1" opacity="0.4">
-  <animate attributeName="r" from="{R_START * 3}" to="{R_END // 2}" dur="{DURATION * 0.7:.2f}s" begin="-{DURATION * 0.35:.2f}s" repeatCount="indefinite" calcMode="ease"/>
-  <animate attributeName="opacity" from="0.4" to="0" dur="{DURATION * 0.7:.2f}s" begin="-{DURATION * 0.35:.2f}s" repeatCount="indefinite" calcMode="ease"/>
-</circle>""")
-    out.append(f"""<circle cx="{cx}" cy="{cy}" r="4" fill="{color1}" opacity="0.9">
-  <animate attributeName="opacity" values="0.9;1;0.5;1;0.9" dur="2s" repeatCount="indefinite"/>
-  <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite"/>
-</circle>""")
-    return "\n".join(out)
+    
+    # Elegant cubic-bezier easing for a smooth organic expansion and fade
+    ease = 'calcMode="spline" keyTimes="0; 1" keySplines="0.165 0.84 0.44 1"'
+    R_MAX = min(cx - 20, cy - 20)
+    
+    out.append(f'<g transform="translate({cx}, {cy})">')
+    
+    # 1. Subtle, slow rotating background rings
+    out.append(f'''<circle r="{R_MAX * 0.8}" fill="none" stroke="{color1}" stroke-width="1.5" stroke-dasharray="2 12" opacity="0.2">
+  <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="40s" repeatCount="indefinite" />
+</circle>''')
+    out.append(f'''<circle r="{R_MAX * 0.6}" fill="none" stroke="{color2}" stroke-width="2" stroke-dasharray="1 6 4 6" opacity="0.3">
+  <animateTransform attributeName="transform" type="rotate" from="360" to="0" dur="25s" repeatCount="indefinite" />
+</circle>''')
+
+    # 2. Expanding pulse waves (The main smooth pulse)
+    WAVE_COUNT = 4
+    WAVE_DUR = 6.0
+    for i in range(WAVE_COUNT):
+        delay = f"-{i * (WAVE_DUR / WAVE_COUNT):.2f}s"
+        out.append(f'''<circle r="0" fill="none" stroke="{color1}" stroke-width="1.5" opacity="0">
+  <animate attributeName="r" values="10; {R_MAX}" dur="{WAVE_DUR}s" begin="{delay}" repeatCount="indefinite" {ease} />
+  <animate attributeName="opacity" values="0.7; 0" dur="{WAVE_DUR}s" begin="{delay}" repeatCount="indefinite" {ease} />
+</circle>''')
+        
+    # 3. Fast thin ripple pulses (adds tech energy)
+    RIPPLE_COUNT = 3
+    RIPPLE_DUR = 3.0
+    for i in range(RIPPLE_COUNT):
+        delay = f"-{i * (RIPPLE_DUR / RIPPLE_COUNT):.2f}s"
+        out.append(f'''<circle r="0" fill="none" stroke="{color3}" stroke-width="1" stroke-dasharray="4 4" opacity="0">
+  <animate attributeName="r" values="5; {R_MAX * 0.7}" dur="{RIPPLE_DUR}s" begin="{delay}" repeatCount="indefinite" {ease} />
+  <animate attributeName="opacity" values="0.5; 0" dur="{RIPPLE_DUR}s" begin="{delay}" repeatCount="indefinite" {ease} />
+</circle>''')
+
+    # 4. Central glowing core
+    out.append(f'<circle r="16" fill="{color1}" opacity="0.15"><animate attributeName="r" values="14;18;14" dur="4s" repeatCount="indefinite" /></circle>')
+    out.append(f'<circle r="10" fill="{color2}" opacity="0.25"><animate attributeName="r" values="9;11;9" dur="3s" repeatCount="indefinite" /></circle>')
+    out.append(f'<circle r="5" fill="{color3}" opacity="0.8"><animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite" /></circle>')
+    out.append(f'<circle r="2" fill="{bg}" opacity="0.9" />')
+
+    out.append('</g>')
+    return "\\n".join(out)
 
 
 def make_svg(theme):
@@ -116,7 +128,7 @@ text, tspan {{white-space: pre;}}
     parts.append(f'<rect width="{CANVAS_W}px" height="{CANVAS_H}px" fill="{bg}" rx="15"/>')
     parts.append(f'<rect width="{INFO_X}px" height="{CANVAS_H}px" fill="{bg}" rx="15"/>')
     parts.append(f'<line x1="{INFO_X - 1}" y1="15" x2="{INFO_X - 1}" y2="{CANVAS_H - 15}" stroke="{cc_col}" stroke-width="0.5" opacity="0.4"/>')
-    parts.append(pulse_rings(CX, CY, p1, p2, p3))
+    parts.append(pulse_rings(CX, CY, p1, p2, p3, bg))
     parts.append(f'<text x="{INFO_X}" y="{INFO_Y0}" fill="{fg}">')
 
     DASH = "\u2014" * 33 + "-\u2014-"

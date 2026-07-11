@@ -18,43 +18,32 @@ text, tspan {white-space: pre;}
 <rect width="1200px" height="539px" fill="#161b22" rx="15"/>
 <rect width="510px" height="539px" fill="#161b22" rx="15"/>
 <line x1="509" y1="15" x2="509" y2="524" stroke="#616e7f" stroke-width="0.5" opacity="0.4"/>
-<circle cx="255" cy="269" r="6" fill="none" stroke="#ffa657" stroke-dasharray="3 4" stroke-width="2.5" opacity="0.9">
-  <animate attributeName="r" from="6" to="245" dur="4.0s" begin="-0.00s" repeatCount="indefinite" calcMode="ease"/>
-  <animate attributeName="opacity" from="0.9" to="0" dur="4.0s" begin="-0.00s" repeatCount="indefinite" calcMode="ease"/>
-  <animate attributeName="stroke-width" from="2.5" to="0.4" dur="4.0s" begin="-0.00s" repeatCount="indefinite" calcMode="ease"/>
-</circle>
-<circle cx="255" cy="269" r="6" fill="none" stroke="#a5d6ff" stroke-dasharray="4 5" stroke-width="2.3" opacity="0.9">
-  <animate attributeName="r" from="6" to="245" dur="4.0s" begin="-0.80s" repeatCount="indefinite" calcMode="ease"/>
-  <animate attributeName="opacity" from="0.9" to="0" dur="4.0s" begin="-0.80s" repeatCount="indefinite" calcMode="ease"/>
-  <animate attributeName="stroke-width" from="2.3" to="0.4" dur="4.0s" begin="-0.80s" repeatCount="indefinite" calcMode="ease"/>
-</circle>
-<circle cx="255" cy="269" r="6" fill="none" stroke="#ffa657" stroke-dasharray="5 6" stroke-width="2.1" opacity="0.9">
-  <animate attributeName="r" from="6" to="245" dur="4.0s" begin="-1.60s" repeatCount="indefinite" calcMode="ease"/>
-  <animate attributeName="opacity" from="0.9" to="0" dur="4.0s" begin="-1.60s" repeatCount="indefinite" calcMode="ease"/>
-  <animate attributeName="stroke-width" from="2.1" to="0.4" dur="4.0s" begin="-1.60s" repeatCount="indefinite" calcMode="ease"/>
-</circle>
-<circle cx="255" cy="269" r="6" fill="none" stroke="#3fb950" stroke-dasharray="3 7" stroke-width="1.9" opacity="0.9">
-  <animate attributeName="r" from="6" to="245" dur="4.0s" begin="-2.40s" repeatCount="indefinite" calcMode="ease"/>
-  <animate attributeName="opacity" from="0.9" to="0" dur="4.0s" begin="-2.40s" repeatCount="indefinite" calcMode="ease"/>
-  <animate attributeName="stroke-width" from="1.9" to="0.4" dur="4.0s" begin="-2.40s" repeatCount="indefinite" calcMode="ease"/>
-</circle>
-<circle cx="255" cy="269" r="6" fill="none" stroke="#a5d6ff" stroke-dasharray="4 4" stroke-width="1.7" opacity="0.9">
-  <animate attributeName="r" from="6" to="245" dur="4.0s" begin="-3.20s" repeatCount="indefinite" calcMode="ease"/>
-  <animate attributeName="opacity" from="0.9" to="0" dur="4.0s" begin="-3.20s" repeatCount="indefinite" calcMode="ease"/>
-  <animate attributeName="stroke-width" from="1.7" to="0.4" dur="4.0s" begin="-3.20s" repeatCount="indefinite" calcMode="ease"/>
-</circle>
-<circle cx="255" cy="269" r="18" fill="none" stroke="#3fb950" stroke-dasharray="1 8" stroke-width="1" opacity="0.4">
-  <animate attributeName="r" from="18" to="122" dur="2.80s" begin="0s" repeatCount="indefinite" calcMode="ease"/>
-  <animate attributeName="opacity" from="0.4" to="0" dur="2.80s" begin="0s" repeatCount="indefinite" calcMode="ease"/>
-</circle>
-<circle cx="255" cy="269" r="18" fill="none" stroke="#3fb950" stroke-dasharray="1 8" stroke-width="1" opacity="0.4">
-  <animate attributeName="r" from="18" to="122" dur="2.80s" begin="-1.40s" repeatCount="indefinite" calcMode="ease"/>
-  <animate attributeName="opacity" from="0.4" to="0" dur="2.80s" begin="-1.40s" repeatCount="indefinite" calcMode="ease"/>
-</circle>
-<circle cx="255" cy="269" r="4" fill="#ffa657" opacity="0.9">
-  <animate attributeName="opacity" values="0.9;1;0.5;1;0.9" dur="2s" repeatCount="indefinite"/>
-  <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite"/>
-</circle>
+<g transform="translate(255, 269)">\n<circle r="188.0" fill="none" stroke="#ffa657" stroke-width="1.5" stroke-dasharray="2 12" opacity="0.2">
+  <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="40s" repeatCount="indefinite"/>
+</circle>\n<circle r="141.0" fill="none" stroke="#a5d6ff" stroke-width="2" stroke-dasharray="1 6 4 6" opacity="0.3">
+  <animateTransform attributeName="transform" type="rotate" from="360" to="0" dur="25s" repeatCount="indefinite"/>
+</circle>\n<circle r="0" fill="none" stroke="#ffa657" stroke-width="1.5" opacity="0">
+  <animate attributeName="r" values="10; 235" dur="6.0s" begin="-0.00s" repeatCount="indefinite" calcMode="spline" keyTimes="0; 1" keySplines="0.165 0.84 0.44 1"/>
+  <animate attributeName="opacity" values="0.7; 0" dur="6.0s" begin="-0.00s" repeatCount="indefinite" calcMode="spline" keyTimes="0; 1" keySplines="0.165 0.84 0.44 1"/>
+</circle>\n<circle r="0" fill="none" stroke="#ffa657" stroke-width="1.5" opacity="0">
+  <animate attributeName="r" values="10; 235" dur="6.0s" begin="-1.50s" repeatCount="indefinite" calcMode="spline" keyTimes="0; 1" keySplines="0.165 0.84 0.44 1"/>
+  <animate attributeName="opacity" values="0.7; 0" dur="6.0s" begin="-1.50s" repeatCount="indefinite" calcMode="spline" keyTimes="0; 1" keySplines="0.165 0.84 0.44 1"/>
+</circle>\n<circle r="0" fill="none" stroke="#ffa657" stroke-width="1.5" opacity="0">
+  <animate attributeName="r" values="10; 235" dur="6.0s" begin="-3.00s" repeatCount="indefinite" calcMode="spline" keyTimes="0; 1" keySplines="0.165 0.84 0.44 1"/>
+  <animate attributeName="opacity" values="0.7; 0" dur="6.0s" begin="-3.00s" repeatCount="indefinite" calcMode="spline" keyTimes="0; 1" keySplines="0.165 0.84 0.44 1"/>
+</circle>\n<circle r="0" fill="none" stroke="#ffa657" stroke-width="1.5" opacity="0">
+  <animate attributeName="r" values="10; 235" dur="6.0s" begin="-4.50s" repeatCount="indefinite" calcMode="spline" keyTimes="0; 1" keySplines="0.165 0.84 0.44 1"/>
+  <animate attributeName="opacity" values="0.7; 0" dur="6.0s" begin="-4.50s" repeatCount="indefinite" calcMode="spline" keyTimes="0; 1" keySplines="0.165 0.84 0.44 1"/>
+</circle>\n<circle r="0" fill="none" stroke="#3fb950" stroke-width="1" stroke-dasharray="4 4" opacity="0">
+  <animate attributeName="r" values="5; 164.5" dur="3.0s" begin="-0.00s" repeatCount="indefinite" calcMode="spline" keyTimes="0; 1" keySplines="0.165 0.84 0.44 1"/>
+  <animate attributeName="opacity" values="0.5; 0" dur="3.0s" begin="-0.00s" repeatCount="indefinite" calcMode="spline" keyTimes="0; 1" keySplines="0.165 0.84 0.44 1"/>
+</circle>\n<circle r="0" fill="none" stroke="#3fb950" stroke-width="1" stroke-dasharray="4 4" opacity="0">
+  <animate attributeName="r" values="5; 164.5" dur="3.0s" begin="-1.00s" repeatCount="indefinite" calcMode="spline" keyTimes="0; 1" keySplines="0.165 0.84 0.44 1"/>
+  <animate attributeName="opacity" values="0.5; 0" dur="3.0s" begin="-1.00s" repeatCount="indefinite" calcMode="spline" keyTimes="0; 1" keySplines="0.165 0.84 0.44 1"/>
+</circle>\n<circle r="0" fill="none" stroke="#3fb950" stroke-width="1" stroke-dasharray="4 4" opacity="0">
+  <animate attributeName="r" values="5; 164.5" dur="3.0s" begin="-2.00s" repeatCount="indefinite" calcMode="spline" keyTimes="0; 1" keySplines="0.165 0.84 0.44 1"/>
+  <animate attributeName="opacity" values="0.5; 0" dur="3.0s" begin="-2.00s" repeatCount="indefinite" calcMode="spline" keyTimes="0; 1" keySplines="0.165 0.84 0.44 1"/>
+</circle>\n<circle r="16" fill="#ffa657" opacity="0.15"><animate attributeName="r" values="14;18;14" dur="4s" repeatCount="indefinite"/></circle>\n<circle r="10" fill="#a5d6ff" opacity="0.25"><animate attributeName="r" values="9;11;9" dur="3s" repeatCount="indefinite"/></circle>\n<circle r="5" fill="#3fb950" opacity="0.8"><animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/></circle>\n<circle r="2" fill="#161b22" opacity="0.9"/>\n</g>
 <text x="510" y="25" fill="#c9d1d9">
 <tspan x="510" y="25">adityaverma9777@github</tspan> -—————————————————————————————————-—-
 <tspan x="510" y="47" class="cc">. </tspan><tspan class="key">OS</tspan>:<tspan class="cc"> ........................... </tspan><tspan class="value">Windows 11, Android 14</tspan>
