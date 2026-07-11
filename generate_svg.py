@@ -8,7 +8,7 @@ INFO_Y0 = 25
 INFO_LINE_H = 22
 INFO_FONT = 16
 CANVAS_W = 1250
-CANVAS_H = 27 * INFO_LINE_H + INFO_Y0 + 30
+CANVAS_H = 29 * INFO_LINE_H + INFO_Y0 + 30
 
 VALUE_COL = 33
 
@@ -122,6 +122,7 @@ size-adjust: 109%;
 }}
 .key {{fill: {key_col};}}
 .value {{fill: {val_col};}}
+.heading {{fill: {val_col}; font-weight: bold;}}
 .link {{text-decoration: underline; cursor: pointer;}}
 .link:hover {{fill: {add_col};}}
 .addColor {{fill: {add_col};}}
@@ -135,16 +136,20 @@ text, tspan {{white-space: pre;}}
     parts.append(pulse_rings(CX, CY, p1, p2, p3, bg))
     parts.append(f'<text x="{INFO_X}" y="{INFO_Y0}" fill="{fg}">')
 
-    DASH = "\u2014" * 38 + "-\u2014-"
-    
+    def header(y_pos, text):
+        pad = max(0, 68 - len(text))
+        dashes = "-" * pad
+        return f'<tspan x="{INFO_X}" y="{y_pos}" class="heading"># {text} {dashes}</tspan>'
+
     y_idx = 0
-    parts.append(f'<tspan x="{INFO_X}" y="{y(y_idx)}">adityaverma9777@github</tspan> -{DASH}'); y_idx+=1
+    parts.append(header(y(y_idx), "adityaverma9777")); y_idx+=1
     parts.append(kv_line(INFO_X, y(y_idx), "Focus", "Backend Engineering | AI/ML | Data Science")); y_idx+=1
     parts.append(kv_line(INFO_X, y(y_idx), "Edu", "BS (4 Years) Zoology Major (21-25)")); y_idx+=1
     parts.append(kv_line(INFO_X, y(y_idx), "Edu", "BCA (26-29)")); y_idx+=1
     parts.append(kv_line(INFO_X, y(y_idx), "Hobbies", "Football, Cooking, Mountains")); y_idx+=1
-    parts.append(f'<tspan x="{INFO_X}" y="{y(y_idx)}" class="cc">. </tspan>'); y_idx+=1
     
+    parts.append(f'<tspan x="{INFO_X}" y="{y(y_idx)}"></tspan>'); y_idx+=1
+    parts.append(header(y(y_idx), "Tech Stack")); y_idx+=1
     parts.append(kv_line(INFO_X, y(y_idx), "Tech", "Python, TypeScript, JavaScript, Java, C++", key2="Languages")); y_idx+=1
     parts.append(kv_line(INFO_X, y(y_idx), "Tech", "PyTorch, NumPy, Hugging Face", key2="AI/ML")); y_idx+=1
     parts.append(kv_line(INFO_X, y(y_idx), "Tech", "FastAPI", key2="Backend")); y_idx+=1
@@ -153,20 +158,21 @@ text, tspan {{white-space: pre;}}
     parts.append(kv_line(INFO_X, y(y_idx), "Tech", "React, Next.js, Tailwind CSS, HTML5", key2="Frontend")); y_idx+=1
     parts.append(kv_line(INFO_X, y(y_idx), "Tech", "Docker, Git", key2="DevOps")); y_idx+=1
     parts.append(kv_line(INFO_X, y(y_idx), "Tech", "Google Cloud Platform", key2="Cloud")); y_idx+=1
-    parts.append(f'<tspan x="{INFO_X}" y="{y(y_idx)}" class="cc">. </tspan>'); y_idx+=1
-    
-    parts.append(kv_line(INFO_X, y(y_idx), "Interests", "ML Systems, Inference Eng.")); y_idx+=1
+
+    parts.append(f'<tspan x="{INFO_X}" y="{y(y_idx)}"></tspan>'); y_idx+=1
+    parts.append(header(y(y_idx), "Interests")); y_idx+=1
+    parts.append(kv_line(INFO_X, y(y_idx), "Topics", "ML Systems, Inference Eng.")); y_idx+=1
     parts.append(f'<tspan x="{INFO_X}" y="{y(y_idx)}">{" " * 32}<tspan class="value">Production AI, Model Deployment</tspan></tspan>'); y_idx+=1
 
-    CDASH = "\u2014" * 35 + "-\u2014-"
-    parts.append(f'<tspan x="{INFO_X}" y="{y(y_idx)}">- Contact</tspan> -{CDASH}'); y_idx+=1
+    parts.append(f'<tspan x="{INFO_X}" y="{y(y_idx)}"></tspan>'); y_idx+=1
+    parts.append(header(y(y_idx), "Contact")); y_idx+=1
     parts.append(kv_line(INFO_X, y(y_idx), "Email", "adityaverma9777@gmail.com", link="mailto:adityaverma9777@gmail.com")); y_idx+=1
     parts.append(kv_line(INFO_X, y(y_idx), "Portfolio", "https://www.adityavermaworks.in/", link="https://www.adityavermaworks.in/")); y_idx+=1
     parts.append(kv_line(INFO_X, y(y_idx), "LinkedIn", "https://linkedin.com/in/adityaverma9777", link="https://linkedin.com/in/adityaverma9777")); y_idx+=1
     parts.append(kv_line(INFO_X, y(y_idx), "Instagram", "https://instagram.com/chaii.samosa", link="https://instagram.com/chaii.samosa")); y_idx+=1
 
-    GDASH = "\u2014" * 31 + "-\u2014-"
-    parts.append(f'<tspan x="{INFO_X}" y="{y(y_idx)}">- GitHub Stats</tspan> -{GDASH}'); y_idx+=1
+    parts.append(f'<tspan x="{INFO_X}" y="{y(y_idx)}"></tspan>'); y_idx+=1
+    parts.append(header(y(y_idx), "GitHub Stats")); y_idx+=1
 
     repo_dots = dots(len("Repos") + 1)
     star_dots = dots(len("Stars") + 1)
